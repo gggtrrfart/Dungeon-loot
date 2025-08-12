@@ -25,7 +25,6 @@ health = 100
 melee = ["fist", "Dagger", "Sword", "Axe", "twin sword", "twin dagger", "twin axe", "Dark Blade", "Twin Dark Blade", "Triple Dark Blade"]
 ranged = ["Bow", "slingshot", "Gun", "Cannon", "Crusafix?", "Soul guitar", "Dual gun"]
 magic = ["wand", "Crusafix?", "dual wand", "staff", "dual staff", "hands", "Curse"]
-potions = ["Damage", "Mana", "Speed"]
 armor = ["leather armor", "wood armor", "chainmail armor", "iron armor", "gold armor", "shattered armor?", "dragon armor", "God armor"]
 magic_lvl = 1
 damage = 1
@@ -169,41 +168,26 @@ def rand_loot():
                 magic_lvl = 999
         elif swap_magic == "no":
             print(f"You drop the {randloot}!")
-    elif randloot in potions:
-        swap_potions = input(f"Whould you like to swap your {inv[3]} for {randloot}? yes or no? ").lower()
-        if swap_potions == "yes":
+    elif randloot in armor:
+        swap_armor = input(f"Whould you like to swap your {inv[3]} for {randloot}? yes or no? ").lower()
+        if swap_armor == "yes":
             del inv[3]
             inv.insert(3, randloot)
-            if inv[3] == "Damage":
-                damage += 50
-                ranged_lvl += 50
-                magic_lvl += 50
-            elif inv[3] == "Mana":
-                magic_lvl += 100
-            elif inv[3] == "Speed":
-                ranged_lvl += 100
-        elif swap_potions == "no":
-            print(f"You drop the {randloot}!")
-    elif randloot in armor:
-        swap_armor = input(f"Whould you like to swap your {inv[4]} for {randloot}? yes or no? ").lower()
-        if swap_armor == "yes":
-            del inv[4]
-            inv.insert(4, randloot)
-            if inv[4] == "leather armor":
+            if inv[3] == "leather armor":
                 health += 50
-            elif inv[4] == "wood armor":
+            elif inv[3] == "wood armor":
                 health += 100
-            elif inv[4] == "chainmail armor":
+            elif inv[3] == "chainmail armor":
                 health += 150
-            elif inv[4] == "iron armor":
+            elif inv[3] == "iron armor":
                 health += 200
-            elif inv[4] == "gold armor":
+            elif inv[3] == "gold armor":
                 health += 250
-            elif inv[4] == "shattered armor?":
+            elif inv[3] == "shattered armor?":
                 health += 300
-            elif inv[4] == "dragon armor":
+            elif inv[3] == "dragon armor":
                 health += 350
-            elif inv[4] == "God armor":
+            elif inv[3] == "God armor":
                 health += 999
         elif swap_armor == "no":
             print(f"You drop the {randloot}!")
@@ -223,7 +207,6 @@ def rand_room():
 inv.append(random.choice(melee))
 inv.append(random.choice(ranged))
 inv.append(random.choice(magic))
-inv.append(random.choice(potions))
 inv.append(random.choice(armor))
 enemy, number = rand_room()
 
@@ -275,29 +258,21 @@ elif inv[2] == "hands":
     magic_lvl = 1
 elif inv[2] == "Curse":
     magic_lvl = 999
-elif inv[3] == "Damage":
-    damage += 50
-    ranged_lvl += 50
-    magic_lvl += 50
-elif inv[3] == "Mana":
-    magic_lvl += 100
-elif inv[3] == "Speed":
-    ranged_lvl += 100
-elif inv[4] == "leather armor":
+elif inv[3] == "leather armor":
     health += 50
-elif inv[4] == "wood armor":
+elif inv[3] == "wood armor":
     health += 100
-elif inv[4] == "chainmail armor":
+elif inv[3] == "chainmail armor":
     health += 150
-elif inv[4] == "iron armor":
+elif inv[3] == "iron armor":
     health += 200
-elif inv[4] == "gold armor":
+elif inv[3] == "gold armor":
     health += 250
-elif inv[4] == "shattered armor?":
+elif inv[3] == "shattered armor?":
     health += 300
-elif inv[4] == "dragon armor":
+elif inv[3] == "dragon armor":
     health += 350
-elif inv[4] == "God armor":
+elif inv[3] == "God armor":
     health += 999
 
 # While True loop
@@ -316,21 +291,21 @@ while True:
 
     if enemy['health'] < 1:
         print("You killed it!")
-        if inv[4] == "leather armor":
+        if inv[43] == "leather armor":
             health = 50
-        elif inv[4] == "wood armor":
+        elif inv[3] == "wood armor":
             health = 100
-        elif inv[4] == "chainmail armor":
+        elif inv[3] == "chainmail armor":
             health = 150
-        elif inv[4] == "iron armor":
+        elif inv[3] == "iron armor":
             health = 200
-        elif inv[4] == "gold armor":
+        elif inv[3] == "gold armor":
             health = 250
-        elif inv[4] == "shattered armor?":
+        elif inv[3] == "shattered armor?":
             health = 300
-        elif inv[4] == "dragon armor":
+        elif inv[3] == "dragon armor":
             health = 350
-        elif inv[4] == "God armor":
+        elif inv[3] == "God armor":
             health = 999
         randloot = rand_loot()
         enemy, number = rand_room()
@@ -354,3 +329,4 @@ while True:
 
 
     
+
